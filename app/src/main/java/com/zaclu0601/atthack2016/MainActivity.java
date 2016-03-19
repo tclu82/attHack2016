@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
     EditText myY;
 
 
+    ArrayList<String> name = new ArrayList<>();
+    ArrayList<Double> x = new ArrayList<>();
+    ArrayList<Double> y = new ArrayList<>();
+//    String link = "https://data.seattle.gov/resource/9n95-kprs.geojson?$where=within_circle(the_geom,%2047.59,%20-122.3,%201000)";
+
+    StringBuffer sb = new StringBuffer("https://data.seattle.gov/resource/9n95-kprs.geojson?$where=within_circle(the_geom,%2047.59,%20-122.3,%2001000)");
+    String s;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +50,16 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new JASONTask().execute("https://data.seattle.gov/resource/9n95-kprs.geojson?$where=within_circle(the_geom,%2047.59,%20-122.3,%201000)");
+                //System.out.println("Enter the distance: ");
+
+
+
+                //sb.append(myX);
+                //sb.append(")");
+
+
+
+                new JASONTask().execute(sb.toString());
 
             }
         });
@@ -54,9 +73,12 @@ public class MainActivity extends AppCompatActivity {
             HttpURLConnection connection = null;
             BufferedReader reader = null;
 
-            ArrayList<String> name = new ArrayList<>();
-            ArrayList<Double> x = new ArrayList<>();
-            ArrayList<Double> y = new ArrayList<>();
+//            ArrayList<String> name = new ArrayList<>();
+//            ArrayList<Double> x = new ArrayList<>();
+//            ArrayList<Double> y = new ArrayList<>();
+
+
+
 
 
             try {
@@ -69,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                 StringBuffer bufferX = new StringBuffer();
                 StringBuffer bufferY = new StringBuffer();
-                String line = "";
+                String line;
 
                 line = reader.readLine();
 
