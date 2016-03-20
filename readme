@@ -1,3 +1,3 @@
-This is project uses Socrata API accessing data.seattle.gov to find out closest restroom for user
+This is project uses Socrata API accessing data.seattle.gov to find out closest spots for user
 
 https://data.seattle.gov/resource/9n95-kprs.json?$order=%20distance_in_meters(the_geom,%20%27POINT%20(-122.3431063%2047.6456311)%27)&$select=alt_name,%20the_geom,%20distance_in_meters(the_geom,%20%27POINT%20(-122.3431063%2047.6456311)%27)%20AS%20distance&$limit=10
